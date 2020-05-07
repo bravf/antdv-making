@@ -1,0 +1,220 @@
+$gray: #f0f2f5;
+$white: #fff;
+$blue: #1890ff;
+$green: #87d068;
+$red: #ff4d4f;
+$bgBlue: #e6f7ff;
+
+@mixin sticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: $white;
+}
+.sticky {
+  @include sticky;
+}
+html, body, .root, .app {
+  height: 100%;
+  font-family: 'Consolas';
+}
+.code-textarea {
+  tab-size: 4;
+  max-height: 600px!important;
+  white-space: normal;
+}
+.root {
+  position: relative;
+}
+.root-drag {
+  cursor: move!important;
+}
+.header, .side-left, .content, .side-right {
+  background: $white;
+}
+.side-left, .side-left2 {
+  h3 {
+    padding: 10px;
+  }
+}
+.side-left, .side-left2, .side-right {
+  flex: none!important;
+  width: 200px!important;
+  max-width: none!important;
+}
+.side-left {
+  border-right: 1px solid $gray;
+  user-select: none;
+}
+.side-left2, .side-right {
+  width: 300px!important;
+}
+.side-right {
+  padding: 0 10px;
+  border-left: 1px solid $gray;
+  .ant-form-item {
+    margin-bottom: 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $gray;
+  }
+  .ant-tabs-bar {
+    @include sticky;
+  }
+}
+.content {
+  position: relative;
+  padding: 10px;
+  margin: 10px;
+  border-top: 2em solid #e6e6e6;
+  border-radius: 3px 3px 0 0;
+  overflow-x: visible!important;
+  box-shadow: 0 0.1em 0.5em 0 rgba(0,0,0,.28);
+  &:before {
+    position: absolute;
+    top: -1.25em;
+    left: 1em;
+    display: block;
+    width: .5em;
+    height: .5em;
+    background-color: #f44;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
+    content: "";
+  }
+}
+.com-setting, .com-list, .com-tree, .page {
+  position: relative;
+  overflow: auto;
+  height: 100%;
+}
+.header {
+  border-bottom: 1px solid $gray;
+}
+.page {
+  height: 100%;
+}
+.com-wrapper {
+  position: relative;
+}
+.com-hover {
+  outline: 1px dashed $blue!important;
+}
+.com-active {
+  border: 1px dashed $blue!important;
+}
+.com-tree-holder {
+  position: absolute;
+  bottom: 0;
+  height: 10px;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+.com-tree-holder-top {
+  top: 50px;
+}
+.com-tree-holder2 {
+  position: absolute;
+  width: 10px;
+  height: calc(100% - 60px);
+  z-index: 10;
+}
+.com-tree-holder-right {
+  right: 0;
+}
+.com-tree-item-wrapper {
+  display: table-row;
+}
+.com-tree-list {
+  position: relative;
+  height: calc(100% - 60px);
+  overflow: auto;
+  table {
+    min-width: 100%;
+  }
+  .com-tree-item {
+    position: relative;
+  }
+}
+.com-tree-item {
+  display: flex;
+  align-items: center;
+  border-radius: 2px;
+  white-space: nowrap;
+  &:hover {
+    background: $gray;
+  }
+}
+.com-tree-item-tool {
+  position: absolute;
+  top: 6px;
+  right: 0;
+  background: $bgBlue;
+  padding: 3px;
+  cursor: pointer;
+  z-index: 10;
+  i {
+    font-size: 16px;
+    padding: 2px;
+    &:hover {
+      color: $red;
+    }
+  }
+}
+.com-tree-arrow {
+  cursor: pointer;
+}
+.com-tree-text {
+  position: relative;
+  line-height: 30px;
+  padding: 0 4px;
+  .style {
+    color: $red;
+  }
+  .style2 {
+    color: $blue;
+  }
+}
+.com-tree-hover {
+  background: $gray;
+}
+.com-tree-drag-hover {
+  color: $blue;
+}
+.com-tree-active {
+  background: $bgBlue!important;
+}
+.com-tree-drag-holder {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  transition: .1s;
+}
+.com-tree-drag-holder-top {
+  top: 0;
+}
+.com-tree-drag-holder-bottom {
+  bottom: 0;
+}
+.com-tree-drag {
+  .com-tree-drag-holder-top {
+    &:hover {
+      border-top: 2px solid $blue;
+    }
+  }
+  .com-tree-drag-holder-bottom {
+    &:hover {
+      border-bottom: 2px solid $blue;
+    }
+  }
+}
+.com-drag {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+  transition: none;
+  background: $bgBlue;
+  opacity: 0.4;
+}
