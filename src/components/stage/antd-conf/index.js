@@ -54,6 +54,7 @@ import spin from './spin'
 import anchor from './anchor'
 import backtop from './badge'
 import divider from './divider'
+import table from './table'
 export default {
   ...button,
   ...icon,
@@ -111,4 +112,5 @@ export default {
   ...anchor,
   ...backtop,
   ...divider,
+  ...table,
 }
